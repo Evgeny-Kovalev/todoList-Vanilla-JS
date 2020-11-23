@@ -1,0 +1,134 @@
+$primary: #FB7100;
+
+@import 'default';
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #4D4D4D;
+}
+
+.todo {
+    padding: 30px;
+
+    &__title {
+        font-size: 30px;
+        color: $primary;
+        text-align: center;
+    }
+
+    &__form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+
+    &__input {
+        height: 45px;
+        max-width: 500px;
+        width: 100%;
+        border: 1px solid #CDD2DA;
+        border-radius: 5px;
+        padding: 10px 25px 10px 15px;
+        color: #878787;
+    }
+
+    &__btn {
+        max-width: 80px;
+        max-height: 80px;
+        min-width: 80px;
+        min-height: 80px;
+
+        border-radius: 50%;
+        background: $primary;
+        margin-left: -15px;
+        position: relative;
+
+        box-shadow: none;
+        
+        span {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 35px;
+            color: #fff;
+            line-height: 1;
+        }
+    }
+
+    &__list {
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    background: #fff;
+    border-bottom: 1px solid #CDD2DA;
+
+    overflow: hidden;
+    position: relative;
+    
+    &__control {
+        position: absolute;
+        left: -100%;
+        top: 0;
+        display: flex;
+        align-items: center;
+        transition: .4s all ease;
+
+        & > div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            height: 100%;
+            padding: 15px 10px;
+
+            & > img {
+                cursor: pointer;
+                height: 20px;
+                width: 20px;
+            }
+        }
+    }
+
+    &:hover .item__control{
+        left: 0;
+    }
+    
+    &__remove {
+        background: $primary;
+    }
+    &__done {
+        background: #4AD295;
+    }
+    
+    &__content {
+        width: 100%;
+        padding: 15px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+    }
+    &:hover .item__content{
+        margin-left: 80px;
+        transition: .6s all ease;
+    }
+    
+    &__title--done {
+        color: #CDD2DA;
+        text-decoration: line-through;
+    }
+}
+
+@import 'media'

@@ -1,0 +1,37 @@
+// >= 576px
+@media (min-width: 576px) {
+    body {
+        background: #f4f4f4;
+    }
+
+    .todo {
+        &__btn {
+            box-shadow: 1px 1px 10px #CDD2DA;
+        }
+    }
+    .container {
+        max-width: 540px;
+    }
+}
+
+// >= 768px
+@media (min-width: 768px) {
+    
+    .container {
+        max-width: 720px;
+    }
+}
+
+// >= 992px
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+// >= 1200px
+@media (min-width: 1200px) {
+
+    .container {
+        max-width: 1140px;
+    }
+}
