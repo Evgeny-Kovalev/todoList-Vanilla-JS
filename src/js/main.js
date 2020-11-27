@@ -5,9 +5,15 @@ const addTodoBtn    = document.querySelector(".todo__btn"),
 
 
 let todoList = getLocalTodos();
-
-if (todoList.length != 0) AddTask();
-
+if (todoList.length === 0) {
+    (async () => {
+        todoList = await getRandTodos();
+        AddTask();
+    })();
+}
+else {
+    AddTask();
+}
 inputTodo.focus();
 
 addTodoBtn.addEventListener("click", e => {
@@ -118,6 +124,24 @@ function creaateTask() {
         title: inputTodo.value,
         done: false,
     }
+}
+
+async function getRandTodos() {
+    const url = 'https://jsonplaceholder.typicode.com/todos';
+    const response = await fetch(url);
+    let result = await response.json();
+    let todos = [];
+    
+    result = result.slice(0, 5);
+    
+    result.forEach((item) => {
+        todos.push({
+            id: item.id,
+            title: item.title,
+            done: item.completed,
+        })
+    });
+    return todos;
 }
 
 
